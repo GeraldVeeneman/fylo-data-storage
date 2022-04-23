@@ -42,7 +42,7 @@ body {
   font-weight: 400;
   color: var(--pale-blue);
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   body {
     background-color: var(--very-dark-blue);
     background-image: url("../images/bg-desktop.png");
@@ -60,7 +60,7 @@ body {
   width: 86%;
   height: 100%;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container {
     flex-direction: row;
     width: 64%;
@@ -73,7 +73,7 @@ body {
   background-color: var(--dark-blue);
   padding: 4rem;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .fylo {
     flex-grow: 1;
   }
@@ -106,7 +106,7 @@ body {
   justify-content: center;
   position: relative;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .meter {
     flex-grow: 2;
     align-self: flex-end;
@@ -117,7 +117,7 @@ body {
   text-align: center;
   margin-bottom: 1.5rem;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .meter__description {
     text-align: left;
   }
@@ -168,7 +168,7 @@ body {
   top: 61%;
   left: 50%;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .meter__msg-box {
     top: -40%;
     left: unset;
@@ -189,7 +189,7 @@ body {
   position: relative;
   left: -50%;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .meter__gb-left {
     left: 0;
     border-bottom-right-radius: 0;
@@ -208,7 +208,7 @@ body {
 .container .meter__triangle {
   display: none;
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 970px) {
   .container .meter__triangle {
     align-self: flex-end;
     display: block;
