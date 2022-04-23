@@ -1,0 +1,262 @@
+/* Colours */
+:root {
+    // Primary
+    --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%)); // gradient colour meter bar
+
+    // Neutral
+    --pale-blue: hsl(243, 100%, 93%); // Colour of icons
+    --grayish-blue: hsl(229, 7%, 55%); // Text of GB left
+    --dark-blue: hsl(228, 56%, 26%); // Background divs
+    --very-dark-blue: hsl(229, 57%, 11%); // Background icons and color number of GB left
+}
+
+/* Typography */
+
+/* Fonts */
+$font-primary: 'Raleway', sans-serif;
+
+/* Media Query break points */
+$bp-desktop: 1440px; // minimum pixels desktop view
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px (10px/16px = 62.5%)
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    background: {
+        image: url('../images/bg-mobile.png');
+        repeat: no-repeat;
+        position: top center;
+        size: cover;        
+    }
+
+    @media only screen and (min-width: $bp-desktop) {
+        background:  {
+            color: var(--very-dark-blue);
+            image: url('../images/bg-desktop.png');
+            position: bottom center;
+            repeat: no-repeat;
+            size: contain;
+        }
+    }
+
+
+    font: {
+        family: $font-primary;
+        size: 1.4rem;
+        weight: 400;
+    }
+
+    color: var(--pale-blue);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    grid-gap: 1.5rem;
+    width: 86%;
+    height: 100%;
+
+    @media only screen and (min-width: $bp-desktop) {
+        flex-direction: row;
+        width: 64%;
+        height: fit-content;
+        grid-gap: 3rem;
+    }
+
+    .fylo {
+        border-radius: 10px 100px 10px 10px;
+        background-color: var(--dark-blue);
+        padding: 4rem;
+
+        @media only screen and (min-width: $bp-desktop) {
+            flex-grow: 1;
+        }
+
+        &__logo {
+            margin: 1rem 0 3rem 0;
+        }
+
+        &__icons {
+            display: flex;
+            align-items: center;
+            grid-gap: 1.5rem;
+
+            figure {
+                height: 5rem;
+                width: 5rem;
+                background-color: var(--very-dark-blue);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .icon {                
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .meter {
+
+        border-radius: 10px;
+        background-color: var(--dark-blue);
+        padding: 3rem 3rem 5rem 3rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        position: relative;
+
+        @media only screen and (min-width: $bp-desktop) {
+            flex-grow: 2;
+            align-self: flex-end;
+            padding: 4rem;
+        }
+
+        &__description {
+            text-align:center;
+            margin-bottom: 1.5rem;
+
+            @media only screen and (min-width: $bp-desktop) {
+                text-align: left;
+            }
+
+        }
+
+        &__bar {
+            height: 2rem;
+            width: 100%;
+            padding: .1rem;
+            background-color: hsl(227, 57%, 18%);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+
+            display: flex;
+            align-items: center;
+
+            &-value {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                flex-grow: 0;
+
+                height: 1.3rem;
+                padding: .1rem;
+                width: 81.5%;
+                background: var(--gradient);
+                border-radius: 10px;
+
+                &-ball {
+                    display: inline-block;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 50%;
+                    background-color: var(--pale-blue);
+                }
+            }
+        }
+
+        &__gb-range {
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 700;
+
+           &-min {
+            justify-self: flex-start;
+
+           }
+           
+           &-max {
+            justify-self: flex-end;
+           }
+        }
+
+        &__msg-box {
+            position: absolute;
+            top: 61%;
+            left: 50%;
+
+            @media only screen and (min-width: $bp-desktop) {                
+                top: -40%;
+                left: unset;
+                right: 4rem;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &__gb-left {
+            background-color: white;
+            padding: 1.25rem 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+
+            display: flex;
+            align-items: center;
+            align-self: center;
+            
+            font-weight: 700;
+
+            position: relative;
+            left: -50%;
+
+            @media only screen and (min-width: $bp-desktop) {
+                left: 0;
+                border-bottom-right-radius: 0;
+            }
+            
+            &-num {
+                color: var(--very-dark-blue);
+                font-size: 4rem;
+                
+            }
+
+            &-text {
+                color: var(--grayish-blue);
+                text-transform: uppercase;
+                font-size: 1.2rem;
+                letter-spacing: 0.1rem;
+            }            
+        }
+
+        &__triangle {
+            display: none;
+
+            @media only screen and (min-width: $bp-desktop) {
+                align-self: flex-end;
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 10px solid white;
+                border-right: 10px solid white;
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid transparent;
+            }
+        }
+    }
+}
+
