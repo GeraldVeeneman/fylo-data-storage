@@ -111,9 +111,24 @@ body {
                 align-items: center;
             }
 
+            label {
+                height: 5rem;
+                width: 5rem;
+                background-color: var(--very-dark-blue);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+
             .icon {                
                 border-radius: 10px;
             }
+        }
+
+        p#file-chosen {
+            margin-top: 1rem;
+            font-size: 1.4rem;
         }
     }
 
@@ -143,6 +158,11 @@ body {
                 text-align: left;
             }
 
+            & #gb-used {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
         }
 
         &__bar {
@@ -167,6 +187,8 @@ body {
                 width: 81.5%;
                 background: var(--gradient);
                 border-radius: 10px;
+
+                transition: width .5s;
 
                 &-ball {
                     display: inline-block;
@@ -232,6 +254,7 @@ body {
             &-num {
                 color: var(--very-dark-blue);
                 font-size: 4rem;
+                margin-right: 1rem;
                 
             }
 
@@ -240,6 +263,7 @@ body {
                 text-transform: uppercase;
                 font-size: 1.2rem;
                 letter-spacing: 0.1rem;
+                white-space: nowrap;
             }            
         }
 

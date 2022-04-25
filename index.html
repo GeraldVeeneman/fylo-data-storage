@@ -24,13 +24,19 @@
       <div class="fylo__icons">
         <figure class="icon"><img src="../images/icon-document.svg" alt="document icon"></figure>        
         <figure class="icon"><img src="../images/icon-folder.svg" alt="folder icon"></figure>
-        <figure class="icon"><img src="../images/icon-upload.svg" alt="upload icon"></figure>
+        <!-- <figure class="icon"><img src="../images/icon-upload.svg" alt="upload icon"></figure> -->
+
+        <input type="file" id="upload" hidden/>
+        <label class="icon" for="upload">
+          <img src="../images/icon-upload.svg" alt="upload icon" title="Upload bestand">
+        </label>
+
         
-      </div>
+      </div><p id="file-chosen">Geen bestand gekozen</p>
     </div>
 
       <div class="meter">
-        <p class="meter__description">You've used <b>815 GB</b> of your storage</p>
+        <p class="meter__description">You've used <span id="gb-used">815 GB</span> of your storage</p>
         <div class="meter__bar">
           <div class="meter__bar-value">
             <span class="meter__bar-value-ball"></span>
@@ -42,7 +48,7 @@
         </div>
         <div class="meter__msg-box">
           <div class="meter__gb-left">
-            <span class="meter__gb-left-num">185&nbsp;</span>
+            <span class="meter__gb-left-num">185</span>
             <span class="meter__gb-left-text">gb left</span> 
           </div>
           <div class="meter__triangle"></div>          
@@ -50,5 +56,31 @@
       </div>
     </div>
   </div>
+
+  <script>
+    window.onload = function() {
+      const meterBarValue = document.querySelector(".meter__bar-value");
+      const gbUsed = document.getElementById("gb-used");
+      const gbLeft = document.querySelector(".meter__gb-left-num");
+      const randomGB = getRandomIntInclusive(10, 1000);
+      
+      meterBarValue.style.width = randomGB/10 + '%';
+      gbUsed.textContent = randomGB + " gb";
+      gbLeft.textContent = 1000 - randomGB;
+    };
+      
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    };
+
+    const actualBtn = document.getElementById('upload');
+    const fileChosen = document.getElementById('file-chosen');
+    actualBtn.addEventListener('change', function(){
+      fileChosen.textContent = this.files[0].name
+    })
+  </script>
+
 </body>
 </html>

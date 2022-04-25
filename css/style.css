@@ -94,8 +94,21 @@ body {
   justify-content: center;
   align-items: center;
 }
+.container .fylo__icons label {
+  height: 5rem;
+  width: 5rem;
+  background-color: var(--very-dark-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 .container .fylo__icons .icon {
   border-radius: 10px;
+}
+.container .fylo p#file-chosen {
+  margin-top: 1rem;
+  font-size: 1.4rem;
 }
 .container .meter {
   border-radius: 10px;
@@ -122,6 +135,10 @@ body {
     text-align: left;
   }
 }
+.container .meter__description #gb-used {
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .container .meter__bar {
   height: 2rem;
   width: 100%;
@@ -142,6 +159,7 @@ body {
   width: 81.5%;
   background: var(--gradient);
   border-radius: 10px;
+  transition: width 0.5s;
 }
 .container .meter__bar-value-ball {
   display: inline-block;
@@ -198,12 +216,14 @@ body {
 .container .meter__gb-left-num {
   color: var(--very-dark-blue);
   font-size: 4rem;
+  margin-right: 1rem;
 }
 .container .meter__gb-left-text {
   color: var(--grayish-blue);
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
+  white-space: nowrap;
 }
 .container .meter__triangle {
   display: none;
